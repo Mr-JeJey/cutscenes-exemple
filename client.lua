@@ -4,11 +4,19 @@ local function StartLaScene()
 	local plyrId = PlayerPedId()
 	local playerClone = ClonePed_2(plyrId, 0.0, false, true, 1)
 
-    RequestCutscene('mp_intro_mcs_13', 8) 
+        RequestCutscene('mp_intro_mcs_13', 8) 
 	
-    while not (HasCutsceneLoaded()) do
-        Wait(0)
-    end
+        while not (HasCutsceneLoaded()) do
+            Wait(0)
+        end
+
+	SetBlockingOfNonTemporaryEvents(playerClone, true)
+	SetEntityVisible(playerClone, false, false)
+	SetEntityInvincible(playerClone, true)
+	SetEntityCollision(playerClone, false, false)
+	FreezeEntityPosition(playerClone, true)
+	SetPedHelmet(playerClone, false)
+	RemovePedHelmet(playerClone, true)
 
 	SetCutsceneEntityStreamingFlags('MP_1', 0, 1)
 	RegisterEntityForCutscene(plyrId, 'MP_1', 0, GetEntityModel(plyrId), 64)
@@ -21,6 +29,7 @@ local function StartLaScene()
 	ClonePedToTarget(playerClone, plyrId)
 	Wait(10)
 	DeleteEntity(playerClone)
+  
 end
 	
 
