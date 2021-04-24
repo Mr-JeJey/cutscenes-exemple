@@ -21,8 +21,6 @@ local function StartLaScene()
 	ClonePedToTarget(playerClone, plyrId)
 	Wait(10)
 	DeleteEntity(playerClone)
-  
-	return playerClone
 end
 	
 
