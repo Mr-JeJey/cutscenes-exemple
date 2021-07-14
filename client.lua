@@ -1,5 +1,8 @@
 -- Exemple fait par Mr_JeJey#8785 grâce aux nombreux forums.. J'espère que ca vous aidera ! :)
 
+
+--test github 
+
 local function StartLaScene()
 	local plyrId = PlayerPedId()
 	local playerClone = ClonePed_2(plyrId, 0.0, false, true, 1)
